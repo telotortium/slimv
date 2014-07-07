@@ -46,7 +46,7 @@ function! SlimvSwankLoader()
     if g:slimv_impl == 'mit'
         if exists( 'g:scheme_builtin_swank' ) && g:scheme_builtin_swank
             " MIT Scheme contains a built-in swank server since version 9.1.1
-            return 'scheme --eval "(let loop () (start-swank) (loop))"'
+            return 'scheme --eval "\"(let loop () (start-swank) (loop))\""'
         endif
         let swanks = split( globpath( &runtimepath, 'slime/contrib/swank-mit-scheme.scm'), '\n' )
         if len( swanks ) == 0
