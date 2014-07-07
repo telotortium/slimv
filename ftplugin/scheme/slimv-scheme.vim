@@ -53,6 +53,10 @@ function! SlimvSwankLoader()
             return ''
         endif
         return '"' . g:slimv_lisp . '" --load "' . swanks[0] . '"'
+    elseif g:slimv_impl == 'chicken'
+        return
+            \ 'csi -p "\"(begin (require-extension slime) (swank-server-start '
+            \ . g:swank_port . '))\""'
     endif
     return ''
 endfunction
